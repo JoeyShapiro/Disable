@@ -14,8 +14,14 @@ concat strings. But this is actually better.
 
 And for once, this program does not have a plant ending.
 
-## Features
-
+## 🚀 Features 🚀
+- 🔥 Blazingly Fast: Written in rust
+- 🔒 Security First: Does not share data
+- 🔞 Easy To Use: Only 2 possible arguments
+- 💻 Cross Platform: Can be compiled for any os or arch
+- 🔑 Turn-Key project: Simple and easy to use for all
+- 👁️ WYSIWYG: No hidden or unknown functionality
+- 📦 Portable: Comes in a small package
 
 ## Use
 This program needs to be called like a normal program
