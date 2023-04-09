@@ -1,14 +1,24 @@
 use std::{env, fs, process};
 
 fn main() {
-    let ending = ".disabled".to_owned();
     let args: Vec<String> = env::args().collect();
+    let mut ending = ".disabled".to_owned();
     let mut new_file = "".to_owned();
 
-    // check it only contains a single argument (the file)
-    if args.len() != 2 {
+    // check it only contains a single argument (the file), or 3 (+ending)
+    if args.len() != 2 && args.len() != 3 {
         println!("improper amount of arguments");
+        println!("--help");
+        println!("disable file [ending[.disabled]]");
+        println!("\tfile - The file to change");
+        println!("\t-e ending - The ending to look for (second arg). Should contain the '.'");
+        println!("\t\tdefault - disabled");
         process::exit(1);
+    }
+
+    // set the ending
+    if args.len() == 3 {
+        ending = args[2].to_string();
     }
 
     // get the new file name (nice way of doing it)
