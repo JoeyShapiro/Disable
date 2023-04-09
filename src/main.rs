@@ -1,7 +1,6 @@
 use std::{env, fs, process};
 
 fn main() {
-    println!("Hello, world!");
     let args: Vec<String> = env::args().collect();
 
     // check it only contains a single argument (the file)
@@ -12,7 +11,7 @@ fn main() {
 
     // copy the file, then delete it
     // this is safer than moving (what if something happens)
-    fs::copy(args[1].as_str(), "test.disabled").unwrap_or_else(|err| {
+    fs::copy(args[1].as_str(), args[1].as_str().to_owned()+".disabled").unwrap_or_else(|err| {
         eprintln!("{err}");
         process::exit(1);
     });
