@@ -1,7 +1,9 @@
 use std::{env, fs, process};
 
 fn main() {
+    let ending = ".disabled".to_owned();
     let args: Vec<String> = env::args().collect();
+    let mut new_file = "".to_owned();
 
     // check it only contains a single argument (the file)
     if args.len() != 2 {
@@ -9,9 +11,18 @@ fn main() {
         process::exit(1);
     }
 
+    // get the new file name (nice way of doing it)
+    // this whole part looks ugly
+    if args[1].ends_with(&ending) {
+        new_file = args[1].trim_end_matches(&ending).to_string()
+    } else {
+        new_file.push_str(args[1].as_str());
+        new_file.push_str(&ending)
+    }
+
     // copy the file, then delete it
     // this is safer than moving (what if something happens)
-    fs::copy(args[1].as_str(), args[1].as_str().to_owned()+".disabled").unwrap_or_else(|err| {
+    fs::copy(args[1].as_str(), new_file).unwrap_or_else(|err| {
         eprintln!("{err}");
         process::exit(1);
     });
