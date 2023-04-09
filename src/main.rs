@@ -8,11 +8,10 @@ fn main() {
     // check it only contains a single argument (the file), or 3 (+ending)
     if args.len() != 2 && args.len() != 3 {
         println!("improper amount of arguments");
-        println!("--help");
         println!("disable file [ending[.disabled]]");
+        println!("--help");
         println!("\tfile - The file to change");
-        println!("\t-e ending - The ending to look for (second arg). Should contain the '.'");
-        println!("\t\tdefault - disabled");
+        println!("\tending [.disabled] - The ending to look for. Should contain the '.'");
         process::exit(1);
     }
 
