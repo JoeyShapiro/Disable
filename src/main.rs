@@ -2,6 +2,9 @@ use std::{env, fs, process};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    // I would add the dot, but maybe they wont want it.
+    // rust is such a pain with strings.
+    // A format string thing in kotlin or python would be nice
     let mut ending = ".disabled".to_owned();
     let mut new_file = "".to_owned();
 
